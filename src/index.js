@@ -50,24 +50,21 @@
 // 21.   How have other people solved this problem?
 
 function powerset(array) {
-  let perms =[];
+  let perms = [];
   helper(0, array, perms);
   return perms;
 }
-  // helper function with arr, perm and perms
-  function helper(i, perm, perms){
+// helper function with arr, perm and perms
+function helper(i, perm, perms) {
+  // base case
+  if (i === array.length - 1) {
+    perms.push(array.slice());
+  } else {
     // an empty array
-    perms.push([]);
-    // an array of each array[idx] value
-    for (let idx of array) {
-      perms.push([array[idx]]);
-      let perm = array.pop(array[idx]);
-  
-      
+    perms.push([], array);
+    for (let j = i; j < array.length; j++) {
+      perms.push([array[j]]);
+      perms.push(array.slice());
     }
-
   }
- 
-
-  
 }
