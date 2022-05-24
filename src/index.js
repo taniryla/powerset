@@ -49,8 +49,17 @@
 // 20.  Can you improve the performance?
 // 21.   How have other people solved this problem?
 
+// function powerset(array) {
+//   let perms = [[]];
+//   for (element in array){
+//     for (let i = 0; i < perms.length; i++){
+//       let perm = perms[i];
+//       perms.push(perm + element)
+//     }
+//     return perms;
+//   }
+
 function powerset(array) {
-  let perms = [];
   helper(0, array, perms);
   return perms;
 }
