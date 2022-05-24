@@ -59,21 +59,18 @@
 //     return perms;
 //   }
 
-function powerset(array) {
-  helper(0, array, perms);
-  return perms;
-}
-// helper function with arr, perm and perms
-function helper(i, perm, perms) {
-  // base case
-  if (i === array.length - 1) {
-    perms.push(array.slice());
+function powerset(array, idx === null) {
+  if (idx === null){
+    idx = array.length - 1;
+  } else if (idx < 0){
+    return [[]];
   } else {
-    // an empty array
-    perms.push([], array);
-    for (let j = i; j < array.length; j++) {
-      perms.push([array[j]]);
-      perms.push(array.slice());
+    element = array[idx];
+    let perms = powerset(array, idx - 1);
+    for (let i = 0; i < perms.length; i++){
+      perm = perms[i];
+      perms.push(perm + [element]);
     }
+    return perms;
   }
-}
+  
