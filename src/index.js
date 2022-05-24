@@ -59,18 +59,21 @@
 //     return perms;
 //   }
 
-function powerset(array, idx === null) {
+function powerset(array, idx = null) {
   if (idx === null){
     idx = array.length - 1;
-  } else if (idx < 0){
+  } 
+	if (idx < 0){
     return [[]];
-  } else {
-    element = array[idx];
-    let perms = powerset(array, idx - 1);
-    for (let i = 0; i < perms.length; i++){
-      perm = perms[i];
-      perms.push(perm + [element]);
+  } 
+  const element = array[idx];
+  const perms = powerset(array, idx - 1);
+	const length = perms.length;
+  for (let i = 0; i < length; i++){
+      const perm = perms[i];
+      perms.push(perm.concat(element);
     }
     return perms;
   }
+
   
